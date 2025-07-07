@@ -13,4 +13,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Define o comando de execução do contêiner. Ele inicia a aplicação usando uvicorn, especificando o arquivo principal (app), o objeto FastAPI (app), o host (0.0.0.0 para escutar em todas as interfaces) e a porta (8000).
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]

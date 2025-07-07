@@ -1,0 +1,24 @@
+services:
+  # 'api' é o nome que damos ao nosso serviço/contêiner. Você pode escolher qualquer nome.
+  api:
+    # A instrução 'build: .' diz ao Docker Compose para construir uma imagem Docker.
+    # O '.' indica que o Dockerfile está no mesmo diretório que este docker-compose.yml.
+    build: .
+    
+    container_name: api-alura # Nome do container
+    
+    # A seção 'ports' mapeia portas entre a sua máquina (host) e o contêiner.
+    ports:
+      # Mapeia a porta 8000 da sua máquina para a porta 8000 dentro do contêiner.
+      # Isso permite que você acesse a API em http://localhost:8000.
+      - "8000:8000"
+    # 'volumes' sincroniza arquivos e pastas entre a sua máquina e o contêiner.
+    volumes:
+      # Mapeia o diretório atual ('.') na sua máquina para o diretório '/app' no contêiner.
+      # Isso é essencial para o desenvolvimento, pois qualquer alteração no seu código
+      # é refletida instantaneamente dentro do contêiner, sem precisar reconstruir a imagem.
+      - .:/app
+    # 'command' sobrescreve o comando padrão (CMD) do Dockerfile.
+    # Usamos isso para iniciar o servidor Uvicorn com a flag '--reload',
+    # que reinicia o servidor automaticamente sempre que um arquivo de código é salvo.
+    command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload

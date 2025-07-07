@@ -49,6 +49,18 @@ Este projeto é uma API desenvolvida com FastAPI para gerenciar alunos, cursos e
 
    Aqui você pode testar todos os endpoints da API de forma interativa.
 
+## Passos para subir o projeto com Docker
+
+1. **Construa a imagem e suba o container:**
+   Com o Docker e Docker Compose instalados, execute o seguinte comando na raiz do projeto:
+   ```sh
+   docker-compose up --build
+   ```
+
+2. **Acesse a documentação interativa:**
+   Abra o navegador e acesse:
+   [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+
 ---
 
 ## Estrutura do Projeto
